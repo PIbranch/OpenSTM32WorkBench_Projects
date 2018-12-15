@@ -182,6 +182,20 @@ void GPIO_Init(void) {
 	HAL_GPIO_Init(GPIOA, &ledgpio);
 }
 
+void LSE_Configuration(void) {
+
+	RCC_OscInitTypeDef osc_init;
+
+	osc_init.OscillatorType = RCC_OSCILLATORTYPE_LSE;
+	osc_init.LSEState = RCC_LSE_ON;
+
+	if( HAL_RCC_OscConfig(&osc_init) != HAL_OK ) {
+		Error_handler();
+	}
+
+	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_LSE, RCC_MCODIV_1);
+}
+
 void Error_handler(void) {
 	while(1);
 }
