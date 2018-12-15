@@ -17,7 +17,7 @@ TIM_HandleTypeDef htimer2;
 int main(void) {
 
 	HAL_Init();
-	SystemClockConfig();
+	SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
 	GPIO_Init();
 
 	while(1);
