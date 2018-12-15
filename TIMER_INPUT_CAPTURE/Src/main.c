@@ -153,11 +153,21 @@ void SystemClock_Config_HSE(uint8_t clock_freq )
 
 void TIMER2_Init(void) {
 
+	TIM_IC_InitTypeDef timer2_InputCaptureConfig;
+
 	htimer2.Instance = TIM2;
 	htimer2.Init.CounterMode = TIM_COUNTERMODE_UP;
 	htimer2.Init.Prescaler = 1;
 	htimer2.Init.Period = 0xFFFFFFFF;
 	if( HAL_TIM_IC_Init(&htimer2) != HAL_OK ) {
+		Error_handler();
+	}
+
+	timer2_InputCaptureConfig.ICFilter = 0;
+	timer2_InputCaptureConfig.ICPolarity = TIM_ICPOLARITY_RISING;
+	timer2_InputCaptureConfig.ICPrescaler = TIM_ICPSC_DIV1;
+	timer2_InputCaptureConfig.ICSelection = TIM_ICSELECTION_DIRECTTI;
+	if( HAL_TIM_IC_ConfigChannel(&htimer2, &timer2_InputCaptureConfig, TIM_CHANNEL_1) != HAL_OK ) {
 		Error_handler();
 	}
 }
