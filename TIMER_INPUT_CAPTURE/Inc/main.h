@@ -1,8 +1,8 @@
 /*
  * main.h
  *
- *  Created on: Dec 13, 2018
- *      Author: yonur
+ *  Created on: 02-Jun-2018
+ *      Author: kiran
  */
 
 #ifndef MAIN_H_
@@ -13,6 +13,8 @@
 #define SYS_CLOCK_FREQ_50_MHZ 50
 #define SYS_CLOCK_FREQ_84_MHZ 84
 #define SYS_CLOCK_FREQ_120_MHZ 120
-#define SYS_CLOCK_FREQ_180_MHZ 180
+
+#define TRUE 1
+#define FALSE 0
 
 #endif /* MAIN_H_ */

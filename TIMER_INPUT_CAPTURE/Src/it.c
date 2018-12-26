@@ -1,22 +1,29 @@
-	/*
+/*
  * it.c
  *
- *  Created on: Dec 13, 2018
- *      Author: yonur
+ *  Created on: 02-Jun-2018
+ *      Author: kiran
  */
 
 #include "main.h"
-
 extern TIM_HandleTypeDef htimer2;
+extern TIM_HandleTypeDef htimer6;
 
-void SysTick_Handler(void) {
-
+void SysTick_Handler (void)
+{
 	HAL_IncTick();
 	HAL_SYSTICK_IRQHandler();
 }
 
-void TIM2_IRQHandler(void) {
 
+void TIM2_IRQHandler(void)
+{
 	HAL_TIM_IRQHandler(&htimer2);
 }
 
+
+void TIM6_DAC_IRQHandler(void)
+{
+	HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+	HAL_TIM_IRQHandler(&htimer6);
+}

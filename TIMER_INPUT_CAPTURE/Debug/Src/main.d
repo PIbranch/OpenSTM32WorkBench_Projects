@@ -1,5 +1,4 @@
 Src/main.o: ../Src/main.c \
- C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/main.h \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/stm32f4xx_hal_conf.h \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/main.h \
@@ -27,9 +26,8 @@ Src/main.o: ../Src/main.c \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-
-C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/main.h:
+ C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/main.h
 
 C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -86,3 +84,5 @@ C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/ST
 C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 
 C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+
+C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/TIMER_INPUT_CAPTURE/Inc/main.h:
