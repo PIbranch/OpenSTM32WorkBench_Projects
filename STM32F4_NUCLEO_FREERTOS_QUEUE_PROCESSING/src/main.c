@@ -132,6 +132,11 @@ static void prvSetupUsart(void) {
 	usart_init_conf.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_Init(USART2, &usart_init_conf);
 
+	//Do settings for the UART byte reception interrupt
+	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
+	NVIC_SetPriority(USART2_IRQn, 6);
+	NVIC_EnableIRQ(USART2_IRQn);
+
 	//Enable USART
 	USART_Cmd(USART2, ENABLE);
 }
@@ -223,4 +228,14 @@ void EXTI15_10_IRQHandler(void)
 	button_status_flag = TRUE;
 	traceISR_EXIT();
 
+}
+
+void USART2_IRQHandler(void) {
+
+	uint16_t dataByte;
+
+	if( USART_GetFlagStatus(USART2, USART_IT_RXNE) ) {
+
+		dataByte = USART_ReceiveData(USART2);
+	}
 }
