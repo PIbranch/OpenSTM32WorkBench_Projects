@@ -15,7 +15,7 @@ startup/%.o: ../startup/%.s
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Assembler'
 	@echo $(PWD)
-	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/StdPeriph_Driver/inc" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/inc" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/CMSIS/device" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/CMSIS/core" -g -o "$@" "$<"
+	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/StdPeriph_Driver/inc" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/inc" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/CMSIS/device" -I"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/CMSIS/core" -g -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

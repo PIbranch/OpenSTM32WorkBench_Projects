@@ -31,6 +31,16 @@
 uint8_t button_status_flag = FALSE;
 char usr_msg[250]={0};
 
+//Structure types
+typedef struct appCmdType {
+	uint8_t appComandNumber;
+	uint8_t appCommandArguments[10];
+}appCmd_t;
+
+typedef struct uartWriteType {
+	uint8_t uartBuffer[150];
+}uartWrite_t;
+
 //Handlers defines
 TaskHandle_t xTaskHandle1 = NULL;
 TaskHandle_t xTaskHandle2 = NULL;
@@ -38,13 +48,13 @@ TaskHandle_t xTaskHandle3 = NULL;
 TaskHandle_t xTaskHandle4 = NULL;
 
 //Handler functions prototypes
-void vTaskMenuHandle(void);
+void vTaskMenuDisplay(void);
 void vTaskCmdHandling(void);
 void vTaskCmdProcessing(void);
 void vTaskUartWrite(void);
 
-void led_handle_task_1(void *parameter);
-void led_handle_task_2(void *parameter);
+//void led_handle_task_1(void *parameter);
+//void led_handle_task_2(void *parameter);
 
 //Local function prototypes
 void printmsg(char *msg);

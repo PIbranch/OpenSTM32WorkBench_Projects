@@ -33,60 +33,71 @@ int main(void)
 	SEGGER_SYSVIEW_Conf();
 	SEGGER_SYSVIEW_Start();
 
-	//Create task 1
-	xTaskCreate(led_handle_task_1, "TASK_1", 500, NULL, 2, &xTaskHandle1);
+	sprintf(usr_msg, "Queue app is starting\r\n");
+	printmsg(usr_msg);
 
-	//Create task 2
-	xTaskCreate(led_handle_task_2, "TASK_2", 500, NULL, 3, &xTaskHandle2);
+	if( ( xQueueCreate(10, sizeof(appCmd_t *)) != NULL ) && ( xQueueCreate(10, sizeof(char *)) != NULL )  ) {
 
-	//Start the scheduler
-	vTaskStartScheduler();
+		//Create task 1
+		xTaskCreate(vTaskMenuDisplay, "TASK_1_MENU", 500, NULL, 1, &xTaskHandle1);
+
+		//Create task 2
+		xTaskCreate(vTaskCmdHandling, "TASK_2_CMD_HANDLING", 500, NULL, 1, &xTaskHandle2);
+
+		//Create task 3
+		xTaskCreate(vTaskCmdProcessing, "TASK_3_CMD_PROCESSING", 500, NULL, 1, &xTaskHandle3);
+
+		//Create Task 4
+		xTaskCreate(vTaskUartWrite, "TASK_4_UART_WRITE", 500, NULL, 1, &xTaskHandle4);
+
+		//Start the scheduler
+		vTaskStartScheduler();
+	} else {
+
+		sprintf(usr_msg, "Queue wasn't created\r\n");
+		printmsg(usr_msg);
+	}
+
+	if( xQueueCreate(10, sizeof(char *)) != NULL ) {
+
+
+	} else {
+
+
+	}
 
 	for(;;);
 }
 
-void led_handle_task_1(void *parameter) {
+void vTaskMenuDisplay(void) {
 
 	while(1) {
 
-		if( button_status_flag == TRUE ) {
 
-			button_status_flag = FALSE;
-			sprintf(usr_msg, "Turn to task 2\r\n");
-			printmsg(usr_msg);
-			vTaskPrioritySet(xTaskHandle1, 2);
-			vTaskPrioritySet(xTaskHandle2, 3);
-		}else {
-
-			rtos_delay(100);
-			//vTaskDelay(100);
-			GPIO_ToggleBits(GPIOA, GPIO_Pin_5);
-			sprintf(usr_msg, "Task 1 is running\r\n");
-			printmsg(usr_msg);
-
-		}
 	}
 }
 
-void led_handle_task_2(void *parameter) {
+void vTaskCmdHandling(void) {
 
 	while(1) {
 
-		if( button_status_flag == TRUE ) {
 
-			button_status_flag = FALSE;
-			sprintf(usr_msg, "Turn to task 1\r\n");
-			printmsg(usr_msg);
-			vTaskPrioritySet(xTaskHandle2, 2);
-			vTaskPrioritySet(xTaskHandle1, 3);
-		} else {
+	}
+}
 
-			rtos_delay(1000);
-			//vTaskDelay(1000);
-			GPIO_ToggleBits(GPIOA, GPIO_Pin_5);
-			sprintf(usr_msg, "Task 2 is running\r\n");
-			printmsg(usr_msg);
-		}
+void vTaskCmdProcessing(void) {
+
+	while(1) {
+
+
+	}
+}
+
+void vTaskUartWrite(void) {
+
+	while(1) {
+
+
 	}
 }
 

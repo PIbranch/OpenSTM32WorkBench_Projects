@@ -34,13 +34,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.elf
+all: STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.elf
 
 # Tool invocations
-STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.elf: $(OBJS) $(USER_OBJS) C:\Workspace\FreeRTOS_Workspace\STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/LinkerScript.ld
+STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.elf: $(OBJS) $(USER_OBJS) C:\Users\yonur\GitHub\OpenSTM32WorkBench_Projects\STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/LinkerScript.ld
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Workspace/FreeRTOS_Workspace/STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"C:/Users/yonur/GitHub/OpenSTM32WorkBench_Projects/STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -52,8 +52,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.elf" "STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.bin"
-	arm-none-eabi-size "STM32F4_NUCLEO_FREERTOS_CHANGE_TASK_PRIORITIES.elf"
+	arm-none-eabi-objcopy -O binary "STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.elf" "STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.bin"
+	arm-none-eabi-size "STM32F4_NUCLEO_FREERTOS_QUEUE_PROCESSING.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents
